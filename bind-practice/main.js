@@ -24,27 +24,27 @@ window.onload = function(){
 
 
 	// Iterates over the questions array to set the questions and behaviour for the buttons
-	for (question_index = 1; question_index <= questions.length; question_index ++) {
-		set_question(question_index);
+	for (questionIndex = 1; questionIndex <= questions.length; questionIndex ++ ) {
+		setQuestion(questionIndex);
 
-		set_right_answer(question_index);
+		setRightAnswer(questionIndex);
 	}
 
-	// Gets the question question_number-1 and sets the text in the question div
-	function set_question(question_number) {
-		var question = questions[question_number - 1].question;
+	// Gets the question questionNumber-1 and sets the text in the question div
+	function setQuestion(questionNumber) {
+		var question = questions[questionNumber - 1].question;
 
-		$( "#question-" + question_number ).text( question );
+		$( "#question-" + questionNumber ).text( question );
 	}
 
-	// Gets the answer at position question_number-1 and calls the respective function
-	function set_right_answer(question_number){
-		var answer = questions[question_number - 1].answer;
+	// Gets the answer at position questionNumber-1 and calls the respective function
+	function setRightAnswer(questionNumber){
+		var answer = questions[questionNumber - 1].answer;
 
 		if(answer == "Yes"){
-			set_yes_as_right_answer(question_number);
+			setYesAsRightAnswer(questionNumber);
 		} else {
-			set_no_as_right_answer(question_number);
+			setNoAsRightAnswer(questionNumber);
 		}
 	}
 
@@ -53,29 +53,29 @@ window.onload = function(){
 	*/
 
 	// Sets the click behaviour on the yes and no buttons when "Yes" is the right answer
-	function set_yes_as_right_answer(question_number){
-		$("#yes-question-" + question_number).bind( "click", function() {
-			show_answer(question_number, "correcta");
+	function setYesAsRightAnswer(questionNumber){
+		$("#yes-button-" + questionNumber).bind( "click", function() {
+			show_answer(questionNumber, "correcta");
 		});
 
-		$("#no-question-" + question_number).bind( "click", function() {
-			show_answer(question_number, "incorrecta");
+		$("#no-button-" + questionNumber).bind( "click", function() {
+			show_answer(questionNumber, "incorrecta");
 		});		
 	}
 
 	// Sets the click behaviour on the yes and no buttons when "No" is the right answer
-	function set_no_as_right_answer(question_number){
-		$("#yes-question-" + question_number).bind( "click", function() {
-			show_answer(question_number, "incorrecta");
+	function setNoAsRightAnswer(questionNumber){
+		$("#yes-button-" + questionNumber).bind( "click", function() {
+			show_answer(questionNumber, "incorrecta");
 		});
 
-		$("#no-question-" + question_number).bind( "click", function() {
-			show_answer(question_number, "correcta");
+		$("#no-button-" + questionNumber).bind( "click", function() {
+			show_answer(questionNumber, "correcta");
 		});		
 	}
 
 	// Shows answer text in the correspondent answer div
-	function show_answer(question_number, answer) {
-		$( "#answer-" + question_number ).text( "Tu respuesta es " + answer );
+	function show_answer(questionNumber, answer) {
+		$( "#answer-" + questionNumber ).text( "Tu respuesta es " + answer );
 	}
 };
