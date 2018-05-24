@@ -55,27 +55,27 @@ window.onload = function(){
 	// Sets the click behaviour on the yes and no buttons when "Yes" is the right answer
 	function setYesAsRightAnswer(questionNumber){
 		$("#yes-button-" + questionNumber).bind( "click", function() {
-			show_answer(questionNumber, "correcta");
+			showAnswer(questionNumber, "correcta");
 		});
 
 		$("#no-button-" + questionNumber).bind( "click", function() {
-			show_answer(questionNumber, "incorrecta");
+			showAnswer(questionNumber, "incorrecta");
 		});		
 	}
 
 	// Sets the click behaviour on the yes and no buttons when "No" is the right answer
 	function setNoAsRightAnswer(questionNumber){
 		$("#yes-button-" + questionNumber).bind( "click", function() {
-			show_answer(questionNumber, "incorrecta");
+			showAnswer(questionNumber, "incorrecta");
 		});
 
 		$("#no-button-" + questionNumber).bind( "click", function() {
-			show_answer(questionNumber, "correcta");
+			showAnswer(questionNumber, "correcta");
 		});		
 	}
 
 	// Shows answer text in the correspondent answer div
-	function show_answer(questionNumber, answer) {
+	function showAnswer(questionNumber, answer) {
 		$( "#answer-" + questionNumber ).text( "Tu respuesta es " + answer );
 	}
 };
